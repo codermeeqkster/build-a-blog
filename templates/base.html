@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+    <head>
+        <title>{{title}}</title>
+        <style>
+        h1 {text-align: center;}
+        .error {
+    color: crimson;
+    font-size: 0.8rem;
+    margin-top: 0.5rem;
+    line-height: 1rem;
+}
+        </style>
+    </head>
+<body>
+    <main>
+        <nav>
+            <a href='/blog'>Main Blog Page</a>
+            <a href='/newpost'>Add a Blog Entry</a>
+        </nav>
+
+        <div class="container">
+               
+            {% block content %}
+            {% endblock %}
+
+        </div> 
+    </main>
+
+</body>
+</html>
