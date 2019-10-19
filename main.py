@@ -1,6 +1,5 @@
 from flask import Flask, request, redirect, render_template
 from flask_sqlalchemy import SQLAlchemy
-from datetime import datetime
 import os
 import jinja2
 
@@ -24,15 +23,13 @@ class Entry(db.Model):
     def __init__(self, title, body ):
         self.title = title
         self.body = body
-        #self.created = datetime.utcnow()
   
 
-#
 @app.route("/")
 def index():
     
     return redirect("/blog")
-#
+
 @app.route("/blog")
 def display_blog_entries():
     
@@ -50,7 +47,7 @@ def is_valid(x):
         else:
             return False
 
-#
+
 @app.route('/newpost', methods=['GET', 'POST'])
 def new_entry():
     if request.method == 'POST':
@@ -79,7 +76,7 @@ def new_entry():
                 body_error = "Please enter text for blog entry"
                 return render_template('new_entry.html', body_error=body_error, new_entry_title=new_entry_title)
 
-    else: # GET
+    else: # GET method
         return render_template('new_entry.html', title="New blog entry")
         
 if __name__ == '__main__':
